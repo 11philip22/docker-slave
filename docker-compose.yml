@@ -8,5 +8,5 @@ services:
       - /data/jenkins_agent:/home/jenkis/agent
       - /data/jenkins_agent:/home/jenkis/.jenkins
     ports:
-      - 8888:8888
+      - "172.17.0.1:22:22"
     restart: unless-stopped
