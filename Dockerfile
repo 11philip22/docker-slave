@@ -5,8 +5,6 @@ ARG group=jenkins
 ARG uid=1000
 ARG gid=1000
 
-# RUN ln -s /opt/java/openjdk/bin/java /usr/local/bin/java
-
 RUN apt-get update && apt-get install -y --no-install-recommends \
 	openssh-server \
 	&& mkdir /var/run/sshd
@@ -23,7 +21,7 @@ ARG AGENT_WORKDIR=/home/${user}/agent
 ENV AGENT_WORKDIR=${AGENT_WORKDIR}
 RUN mkdir /home/${user}/.jenkins && mkdir -p ${AGENT_WORKDIR}
 
-user root
+USER root
 
 VOLUME /home/${user}/.jenkins
 VOLUME ${AGENT_WORKDIR}
